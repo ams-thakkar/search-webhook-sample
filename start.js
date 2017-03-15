@@ -50,7 +50,7 @@ apiRoute.post('/find', function(req, res) {
    			random = results.response.docs[0].title[0];
    		}
    		else 
-   			random = 'No results found';
+   			random = 'No results found.';
    		console.log('random: ',random);
     });
     
