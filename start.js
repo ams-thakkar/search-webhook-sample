@@ -40,15 +40,27 @@ apiRoute.post('/find', function(req, res) {
 
     console.log('you entered - ',url);
     
+    //var results = '';
+    var random;
    	getResponse(url, function(results){
-    	console.log('results: ',results.response.docs[0].title[0]);
+   		random = results.response.docs[0].title[0];
+   		console.log('random: ',random);
     });
     
+   	
+   	//console.log('results: ',results.response.docs[0].title[0]);
+   	setTimeout(function () {
+   		console.log('function: ',random);
+   	  	var resultSpeech = 'Here is the top result for your query; '+speech+'.';
+   	   	var resultDisplay = random ? random : "Well! Something went wrong, but I am only learning.";
+   	
+   	
+    	
     return res.json({
-        speech: speech,
-        displayText: speech,
-        source: 'webhook-nodejs-sample'
-    });
+        speech: resultSpeech,
+        displayText: resultDisplay,
+        source: 'search-webhook-sample'
+    });}, 500);
 });
 
 
