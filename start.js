@@ -57,9 +57,9 @@ apiRoute.post('/find', function(req, res) {
    	
    	//console.log('results: ',results.response.docs[0].title[0]);
    	setTimeout(function () {
-   		console.log('function: ',random);
-   	  	var resultSpeech = 'Here is the top result for your query; '+speech+'.';
+   		console.log('function: ',random);   	  	
    	   	var resultDisplay = random ? random : "Well! Something went wrong, but I am only learning.";
+   	   	var resultSpeech = 'Here is the top result for your query; '+speech+'.\n '+resultDisplay;
     	
     return res.json({
         speech: resultSpeech,
