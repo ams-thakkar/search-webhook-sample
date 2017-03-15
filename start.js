@@ -38,12 +38,19 @@ apiRoute.post('/find', function(req, res) {
 	//var speech = 'galaxy';
 	var url = 'http://services.att.com/search/v1/global-search?app-id=testing&start=0&row=1&fl=title&fq=_lw_data_source_s:globalsearch-catalog&facet=false&hl=false&sort=defaultMarketingSequence%20asc&q='+speech;
 
+    // For local testing due to proxy issues
+    //var url = 'http://zlt0.vci.att.com:3000/search/v1/global-search?app-id=testing&start=0&row=1&fl=title&fq=_lw_data_source_s:globalsearch-catalog&facet=false&hl=false&sort=defaultMarketingSequence%20asc&q='+speech;
+
     console.log('you entered - ',url);
     
     //var results = '';
     var random;
    	getResponse(url, function(results){
-   		random = results.response.docs[0].title[0];
+   		if(results && results.response && results.response.docs[0]){
+   			random = results.response.docs[0].title[0];
+   		}
+   		else 
+   			random = 'No results found';
    		console.log('random: ',random);
     });
     
@@ -53,14 +60,12 @@ apiRoute.post('/find', function(req, res) {
    		console.log('function: ',random);
    	  	var resultSpeech = 'Here is the top result for your query; '+speech+'.';
    	   	var resultDisplay = random ? random : "Well! Something went wrong, but I am only learning.";
-   	
-   	
     	
     return res.json({
         speech: resultSpeech,
         displayText: resultDisplay,
         source: 'search-webhook-sample'
-    });}, 500);
+    });}, 700);
 });
 
 
