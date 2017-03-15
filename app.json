@@ -1,0 +1,6 @@
+{
+  "name": "search-webhook-sample",
+  "description": "Sample app to integrate the /search service with api.ai as webhook",
+  "repository": "https://github.com/ams-thakkar/search-webhook-sample.git",
+  "keywords": ["api.ai", "natural language", "webhook", "search service"]
+}
