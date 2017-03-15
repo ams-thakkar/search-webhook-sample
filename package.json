@@ -1,0 +1,14 @@
+{
+  "name": "search-webhook-sample",
+  "version": "1.0.0",
+  "description": "Sample app to integrate the /search service with api.ai as webhook",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "author": "Amrish Thakkar",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  }
+}
